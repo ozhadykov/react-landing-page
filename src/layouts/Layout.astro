@@ -24,13 +24,13 @@ const {title, isLegal = false} = Astro.props;
 
 <div class="drawer">
   <input id="main-drawer" type="checkbox" class="drawer-toggle" />
-  <div class="drawer-content flex flex-col">
+  <div class="drawer-content flex flex-col min-h-screen">
     <!-- Navbar inside content -->
     <Navbar />
     
-    <div class={isLegal ? "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full" : ""}>
+    <main class="flex-grow">
       <slot/>
-    </div>
+    </main>
 
     <!-- Scroll to Top Button -->
     <button
