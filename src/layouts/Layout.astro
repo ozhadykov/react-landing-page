@@ -20,10 +20,76 @@ const {title} = Astro.props;
   <title>Assel Zhadykova {title?.length && `| ${title}`}</title>
 </head>
 <body>
-<Navbar></Navbar>
-<slot/>
-</body>
-</html>
+
+<div class="drawer">
+  <input id="main-drawer" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content flex flex-col">
+    <!-- Navbar inside content -->
+    <Navbar />
+    <slot/>
+
+    <!-- Scroll to Top Button -->
+    <button
+      id="scroll-to-top"
+      class="fixed bottom-8 right-8 z-50 h-12 w-12 rounded-full bg-primary text-white shadow-lg shadow-primary/30 flex items-center justify-center translate-y-20 opacity-0 transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer"
+      aria-label="Scroll to top"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7" />
+      </svg>
+    </button>
+  </div> 
+
+  <!-- Drawer Side (Mobile Sidebar) -->
+  <div class="drawer-side z-[100]">
+    <label for="main-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+    <div class="menu p-8 w-80 min-h-full bg-base-200/95 backdrop-blur-2xl text-white">
+      <div class="mb-12">
+         <h2 class="text-2xl font-black tracking-tighter uppercase">ASSEL <span class="text-primary">ZHADYKOVA</span></h2>
+      </div>
+      <ul class="space-y-4">
+        <li><a href="/#about" class="text-xl font-bold uppercase py-4 border-b border-white/5 drawer-close-link">Обо мне</a></li>
+        <li><a href="/#services" class="text-xl font-bold uppercase py-4 border-b border-white/5 drawer-close-link">Услуги</a></li>
+        <li><a href="/#reviews" class="text-xl font-bold uppercase py-4 border-b border-white/5 drawer-close-link">Отзывы</a></li>
+        <li><a href="/#community" class="text-xl font-bold uppercase py-4 border-b border-white/5 drawer-close-link">Сообщество</a></li>
+      </ul>
+      
+      <div class="mt-auto pt-12">
+         <p class="text-xs text-white/40 uppercase font-black tracking-widest mb-4">Начните свой путь</p>
+         <a href="/project-100" class="btn-primary-custom w-full text-center">Проект 100 женщин</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Scroll to Top logic
+  const scrollBtn = document.getElementById('scroll-to-top');
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      scrollBtn?.classList.remove('translate-y-20', 'opacity-0');
+      scrollBtn?.classList.add('translate-y-0', 'opacity-100');
+    } else {
+      scrollBtn?.classList.add('translate-y-20', 'opacity-0');
+      scrollBtn?.classList.remove('translate-y-0', 'opacity-100');
+    }
+  });
+
+  scrollBtn?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Close drawer on link click
+  const drawerCheckbox = document.getElementById('main-drawer') as HTMLInputElement;
+  const drawerLinks = document.querySelectorAll('.drawer-close-link');
+  
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (drawerCheckbox) drawerCheckbox.checked = false;
+    });
+  });
+</script>
 
 <style>
     html,
@@ -33,3 +99,5 @@ const {title} = Astro.props;
         height: 100%;
     }
 </style>
+</body>
+</html>
