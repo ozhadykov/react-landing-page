@@ -1,0 +1,40 @@
+---
+interface Props {
+  name: string;
+  tagline: string;
+  ctaText: string;
+}
+
+const { name, tagline, ctaText } = Astro.props;
+---
+
+<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
+  <!-- Animated Background Glows -->
+  <div class="absolute top-0 left-0 w-full h-full -z-10">
+    <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/20 blur-[120px] rounded-full animate-pulse"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary/10 blur-[120px] rounded-full"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="space-y-8 max-w-4xl mx-auto">
+      <h1 class="text-5xl md:text-8xl font-black tracking-tighter leading-none mb-6 animate-fade-in-up">
+        <span class="block text-white opacity-90">{name}</span>
+        <span class="gradient-text uppercase">Твой Квантовый Скачок</span>
+      </h1>
+      
+      <p class="text-lg md:text-2xl text-white/60 font-medium max-w-2xl mx-auto leading-relaxed animate-fade-in-up animate-delay-100">
+        {tagline}
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8 animate-fade-in-up animate-delay-200">
+        <a href="#services" class="btn-primary-custom text-lg">
+          {ctaText}
+        </a>
+        <a href="#about" class="px-8 py-3 rounded-full font-bold border border-white/10 hover:bg-white/5 transition-all">
+          Узнать больше
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>

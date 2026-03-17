@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Живая встреча: Быстрое изменение жизни">
+  <main class="pt-24">
+    <section class="py-20 relative overflow-hidden">
+      <div class="absolute top-0 left-0 w-full h-full -z-10">
+         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-primary/5 blur-[150px] rounded-full"></div>
+      </div>
+      
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in-up">
+        <span class="text-primary font-black uppercase tracking-[0.3em] text-sm mb-6 block">Живая встреча</span>
+        <h1 class="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-none">
+          Быстрое <br/> <span class="text-primary">изменение</span> жизни
+        </h1>
+        <p class="text-xl md:text-2xl text-white/70 mb-12 leading-relaxed">
+          Живая встреча-инсайт для тех, кто чувствует, что в жизни пора что-то менять, но пока не понимает — что именно и с чего начать.
+        </p>
+        <div class="bg-white/5 border border-white/10 p-6 rounded-3xl inline-block backdrop-blur-md mb-12">
+           <p class="text-lg font-bold">Формат: 3–4 часа глубокого разговора</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-base-200/50">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading title="О чем мы поговорим" />
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+             {[
+               "Жизненные кризисы и точки роста",
+               "Повторяющиеся сценарии в отношениях и жизни",
+               "Внутренние установки, мешающие движению",
+               "Почему изменения у большинства так и не происходят"
+             ].map(item => (
+               <div class="flex gap-4 p-6 bg-base-300 rounded-2xl border border-white/5 items-center">
+                  <div class="h-10 w-10 bg-primary/20 rounded-full flex items-center justify-center shrink-0">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                     </svg>
+                  </div>
+                  <p class="text-lg font-bold">{item}</p>
+               </div>
+             ))}
+          </div>
+       </div>
+    </section>
+
+    <section class="py-24">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <SectionHeading title="Результат встречи" subtitle="Новые инсайты и ясное понимание своего пути" />
+          <div class="bg-linear-to-r from-primary/20 to-base-300 p-12 rounded-[50px] border border-white/10 max-w-4xl mx-auto">
+             <p class="text-2xl italic text-white/90 leading-relaxed mb-8">
+                «Это не лекция из учебника. Это живой процесс, где вы начинаете по-другому смотреть на свою жизнь и решения.»
+             </p>
+             <a href="#" class="btn-primary-custom text-lg px-12">Прийти на встречу</a>
+          </div>
+       </div>
+    </section>
+
+    <Footer />
+  </main>
+</Layout>

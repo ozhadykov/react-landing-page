@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Стратегическая сессия с Ассель Жадыковой">
+  <main class="pt-24">
+    <section class="py-24 bg-linear-to-b from-base-100 to-base-300">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl animate-fade-in-up">
+             <span class="text-primary font-black uppercase tracking-[0.3em] text-sm mb-6 block">Индивидуальное наставничество</span>
+             <h1 class="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-none">
+                Новая стратегия <br/> <span class="text-primary">жизни</span>
+             </h1>
+             <p class="text-xl md:text-2xl text-white/70 leading-relaxed font-medium mb-12">
+                Иногда человеку нужен не совет и не поддержка. Ему нужна ясность и стратегия действий. Разбор вашей ситуации системно: отношения, состояние, сценарии.
+             </p>
+             <a href="#" class="btn-primary-custom text-lg px-12 py-5 shadow-2xl shadow-primary/40">
+                Записаться на сессию
+             </a>
+          </div>
+       </div>
+    </section>
+
+    <section class="py-24">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading title="Что происходит на сессии" />
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+             {[
+               { t: "Разбор ситуации", d: "Честный анализ вашей текущей реальности." },
+               { t: "Поиск причин", d: "Выявление ключевых причин происходящего." },
+               { t: "Точки роста", d: "Определение реальных возможностей для изменений." },
+               { t: "Стратегия шагов", d: "Формирование конкретного плана действий." }
+             ].map(item => (
+               <div class="p-8 bg-base-200 rounded-[40px] border border-white/5 hover:bg-primary/5 transition-colors group">
+                  <h4 class="text-xl font-bold uppercase mb-4 tracking-tighter group-hover:text-primary">{item.t}</h4>
+                  <p class="text-white/40 leading-relaxed">{item.d}</p>
+               </div>
+             ))}
+          </div>
+       </div>
+    </section>
+
+    <section class="py-24 bg-base-300 relative overflow-hidden">
+       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <SectionHeading title="Результат" subtitle="Обретение ясности и уверенности" />
+          <div class="space-y-6 text-xl text-white/80 font-medium">
+             <p>После сессии у вас появляется ясность в отношении своей ситуации и понимание того, куда двигаться дальше.</p>
+             <div class="p-12 border-2 border-primary/20 rounded-[50px] inline-block bg-base-100/50 backdrop-blur-3xl mt-8">
+                <p class="text-3xl font-black uppercase tracking-tighter text-white">Выход на новый уровень</p>
+             </div>
+          </div>
+          <p class="mt-16 text-[10px] text-white/20 uppercase font-black tracking-widest max-w-lg mx-auto leading-relaxed">
+             Внимание: Данная сессия не является психологической консультацией. Это формат наставничества и стратегического разбора.
+          </p>
+       </div>
+    </section>
+
+    <Footer />
+  </main>
+</Layout>

@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Марафон: Умная ходьба">
+  <main class="pt-24">
+    <section class="py-20 bg-primary relative overflow-hidden">
+       <div class="absolute inset-0 bg-black/20"></div>
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 animate-fade-in-up">
+          <span class="text-white/60 font-black uppercase tracking-[0.3em] text-sm mb-6 block">Марафон 21 день</span>
+          <h1 class="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-none text-white">
+            Умная ходьба
+          </h1>
+          <p class="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-12">
+            Иногда для того, чтобы жизнь начала меняться, нужен всего один простой шаг. Начни движение к новой жизни за 21 день.
+          </p>
+          <div class="inline-flex flex-col gap-2">
+             <a href="#" class="px-12 py-5 bg-white text-primary rounded-full font-black uppercase tracking-widest text-lg hover:scale-105 transition-transform shadow-2xl">
+               Старт потока: 11 марта
+             </a>
+             <p class="text-xs text-white/60 uppercase font-black mt-4">Места ограничены</p>
+          </div>
+       </div>
+    </section>
+
+    <section class="py-24">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+             <div class="space-y-8">
+                <SectionHeading title="Что мы будем делать" centered={false} />
+                <div class="grid grid-cols-1 gap-6">
+                   {[
+                     { t: "Ранний подъем", d: "Формируем дисциплину с первых минут дня." },
+                     { t: "Ежедневная ходьба", d: "Простые шаги для огромной энергии." },
+                     { t: "Тёплая вода", d: "Очищение и запуск метаболизма." },
+                     { t: "Аудио-лекции", d: "Темы внутренних изменений от Ассель." },
+                     { t: "Отчетность", d: "Дисциплина через регулярную практику." }
+                   ].map(item => (
+                     <div class="flex gap-4 p-6 bg-white/5 rounded-3xl border border-white/5">
+                        <div class="h-12 w-12 bg-primary/20 rounded-full flex items-center justify-center shrink-0">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                           </svg>
+                        </div>
+                        <div>
+                           <h4 class="font-bold text-xl uppercase tracking-tighter">{item.t}</h4>
+                           <p class="text-white/50">{item.d}</p>
+                        </div>
+                     </div>
+                   ))}
+                </div>
+             </div>
+             <div class="bg-base-200 p-12 rounded-[60px] border border-white/10 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-3xl"></div>
+                <h3 class="text-3xl font-black uppercase mb-8 leading-none">Результат <br/><span class="text-primary">за 21 день</span></h3>
+                <ul class="space-y-6">
+                   {[
+                     "Повышение уровня энергии",
+                     "Улучшение физического состояния",
+                     "Позитивное мышление и настроение",
+                     "Внутренняя дисциплина",
+                     "Ощущение реального движения"
+                   ].map(res => (
+                     <li class="flex gap-4 items-center text-lg font-bold">
+                        <span class="text-primary tracking-widest font-black italic">STEP</span>
+                        {res}
+                     </li>
+                   ))}
+                </ul>
+                <p class="mt-12 text-sm text-white/40 italic">
+                   «Путь в тысячу миль начинается с первого шага»
+                </p>
+             </div>
+          </div>
+       </div>
+    </section>
+
+    <Footer />
+  </main>
+</Layout>

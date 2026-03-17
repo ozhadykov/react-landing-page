@@ -1,6 +1,38 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import AboutMe from '../components/AboutMe.astro';
+import StorySection from '../components/StorySection.astro';
+import Services from '../components/Services.astro';
+import MethodSteps from '../components/MethodSteps.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import Reviews from '../components/Reviews.astro';
+import Mission from '../components/Mission.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<Layout>
+<Layout title="Твой Квантовый Скачок">
+	<main class="overflow-x-hidden">
+		<Hero 
+			name="Ассель Жадыкова" 
+			tagline="Изменяю жизненные стратегии женщин через здоровье, отношения, реализацию и финансы. Начни свой путь трансформации сегодня."
+			ctaText="Начать обучение"
+		/>
+		
+		<AboutMe />
+
+		<MethodSteps />
+		
+		<StorySection />
+		
+		<BeforeAfter />
+		
+		<Services />
+		
+		<Reviews />
+		
+		<Mission />
+		
+		<Footer />
+	</main>
 </Layout>

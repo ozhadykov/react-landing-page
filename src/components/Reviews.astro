@@ -1,0 +1,51 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+
+const reviews = [
+  {
+    name: "Айгерим",
+    text: "После курса «Ресурсная женщина» я наконец-то почувствовала вкус к жизни. Это было невероятное путешествие!",
+    role: "Предприниматель"
+  },
+  {
+    name: "Марина",
+    text: "Методология Ассель — это не просто теория, это реальные инструменты, которые работают с первого дня.",
+    role: "Мама троих детей"
+  },
+  {
+    name: "Сауле",
+    text: "Я смогла наладить отношения с мужем и найти свое призвание. Огромная благодарность Ассель!",
+    role: "Маркетолог"
+  }
+];
+---
+
+<section id="reviews" class="py-24 bg-base-100 overflow-hidden relative">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] -z-10">
+    <div class="absolute inset-0 bg-primary/5 blur-[120px] rounded-full rotate-45"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionHeading title="Отзывы участниц" subtitle="Истории тех, кто уже сделал свой Квантовый Скачок" />
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {reviews.map((review) => (
+        <div class="bg-base-200/50 border border-white/5 p-8 rounded-3xl relative">
+          <div class="text-primary text-6xl font-serif absolute top-4 right-8 opacity-20">“</div>
+          <p class="text-white/80 text-lg mb-8 relative z-10 italic">
+            {review.text}
+          </p>
+          <div class="flex items-center gap-4">
+            <div class="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center font-black text-primary">
+              {review.name[0]}
+            </div>
+            <div>
+              <h4 class="font-bold text-white">{review.name}</h4>
+              <p class="text-white/40 text-sm uppercase tracking-widest">{review.role}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

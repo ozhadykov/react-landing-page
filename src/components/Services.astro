@@ -1,0 +1,68 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+
+const courses = [
+  {
+    title: "Квантовый скачок в отношениях",
+    description: "Практический курс о зрелой коммуникации и понимании психологии мужчин без манипуляций.",
+    price: "Курс",
+    category: "Отношения",
+    link: "/course-relationships"
+  },
+  {
+    title: "Быстрое изменение жизни",
+    description: "Живая встреча-инсайт о жизненных кризисах, сценариях и точках реального роста.",
+    price: "Встреча",
+    category: "Осознанность",
+    link: "/live-meeting"
+  },
+  {
+    title: "Умная ходьба",
+    description: "21-дневный марафон изменений через движение, дисциплину и новые привычки.",
+    price: "Марафон",
+    category: "Здоровье",
+    link: "/marathon"
+  },
+  {
+    title: "Стратегическая сессия",
+    description: "Индивидуальный разбор вашей ситуации и формирование новой стратегии жизни.",
+    price: "Наставничество",
+    category: "Стратегия",
+    link: "/strategic-session"
+  }
+];
+---
+
+<section id="services" class="py-24 bg-base-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionHeading title="Программы и Встречи" subtitle="Выберите формат вашего первого шага" />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {courses.map((course) => (
+        <a href={course.link} class="group relative bg-base-300/50 border border-white/5 p-8 rounded-3xl hover:bg-primary/5 hover:border-primary/20 transition-all duration-500 hover:-translate-y-2 flex flex-col">
+          <div class="absolute top-6 right-6 text-[10px] font-black uppercase tracking-widest text-primary/60 px-3 py-1 bg-primary/10 rounded-full">
+            {course.category}
+          </div>
+          
+          <h3 class="text-xl font-bold mb-4 mt-4 leading-tight group-hover:text-primary transition-colors">
+            {course.title}
+          </h3>
+          
+          <p class="text-white/50 mb-8 text-sm leading-relaxed">
+            {course.description}
+          </p>
+          
+          <div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
+            <span class="text-sm font-black text-white uppercase tracking-widest">{course.price}</span>
+            <div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+

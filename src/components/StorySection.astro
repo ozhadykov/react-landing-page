@@ -1,0 +1,83 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+---
+
+<section id="story" class="py-24 bg-base-100 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionHeading title="Моя история" subtitle="От поиска себя к созданию жизни мечты" />
+
+    <div class="relative max-w-4xl mx-auto">
+      <div id="story-content" class="relative max-h-[400px] overflow-hidden transition-all duration-700 ease-in-out">
+        <div class="space-y-6 text-lg text-white/70 leading-relaxed font-medium">
+          <p>
+            Здесь будет ваша подробная история. Ваша история — это путь преодоления, который вдохновит тысячи женщин. 
+            Каждый этап этого пути был необходим для того, чтобы сегодня вы могли стать тем самым наставником, которым являетесь.
+          </p>
+          <p>
+            Мы опишем ключевые моменты трансформации: когда пришло понимание, что старые стратегии больше не работают, 
+            и как родилась методология «Квантовый скачок». 
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 py-8">
+            <div class="aspect-square rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white/10 italic text-2xl">
+              Фото 1
+            </div>
+            <div class="aspect-square rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white/10 italic text-2xl">
+              Фото 2
+            </div>
+          </div>
+          <p>
+            Продолжение истории, которое будет доступно после нажатия кнопки. Здесь мы раскроем больше деталей, 
+            эмоций и выводов, которые привели к созданию образовательных программ.
+          </p>
+          <p>
+            Ваша миссия — передать эти знания женщинам, которые сегодня находятся в поиске ответов на свои вопросы.
+          </p>
+        </div>
+        
+        <!-- Gradient Overlay for "Read More" -->
+        <div id="story-overlay" class="absolute bottom-0 left-0 w-full h-40 bg-linear-to-t from-base-100 to-transparent flex items-end justify-center pb-4 transition-opacity duration-500">
+        </div>
+      </div>
+
+      <div class="flex justify-center mt-12">
+        <button id="toggle-story" class="group relative px-12 py-4 rounded-full border-2 border-primary/40 hover:border-primary transition-all duration-300 font-black uppercase tracking-widest text-sm text-white">
+          <span class="relative z-10 flex items-center gap-2">
+            Читать полностью 
+            <svg id="story-icon" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+          <div class="absolute inset-0 bg-primary/10 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const toggleBtn = document.getElementById('toggle-story');
+  const storyContent = document.getElementById('story-content');
+  const storyOverlay = document.getElementById('story-overlay');
+  const storyIcon = document.getElementById('story-icon');
+  let isOpen = false;
+
+  toggleBtn?.addEventListener('click', () => {
+    isOpen = !isOpen;
+    if (isOpen) {
+      storyContent!.style.maxHeight = '2000px';
+      storyOverlay!.style.opacity = '0';
+      storyOverlay!.style.pointerEvents = 'none';
+      toggleBtn.querySelector('span')!.childNodes[0].textContent = 'Свернуть историю ';
+      storyIcon!.style.transform = 'rotate(180deg)';
+    } else {
+      storyContent!.style.maxHeight = '400px';
+      storyOverlay!.style.opacity = '1';
+      storyOverlay!.style.pointerEvents = 'auto';
+      toggleBtn.querySelector('span')!.childNodes[0].textContent = 'Читать полностью ';
+      storyIcon!.style.transform = 'rotate(0deg)';
+      
+      // Smooth scroll back to top of section if closed
+      storyContent?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+</script>

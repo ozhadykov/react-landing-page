@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Проект: 100 женщин. Новая жизнь">
+  <main class="pt-24">
+    <section class="py-24 bg-linear-to-b from-base-200 to-base-100">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in-up">
+          <span class="text-primary font-black uppercase tracking-[0.3em] text-sm mb-6 block">Новое женское сообщество</span>
+          <h1 class="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-none">
+             100 женщин <br/> <span class="text-primary">Новая жизнь</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-12">
+             Пространство для тех, кто готов выйти на новый уровень жизни через сильное окружение и поддержку.
+          </p>
+          <a href="#" class="btn-primary-custom text-lg px-12 py-5">Присоединиться к проекту</a>
+       </div>
+    </section>
+
+    <section class="py-24">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+             <div class="relative group">
+                <div class="absolute -inset-4 bg-primary/20 rounded-[50px] blur-2xl group-hover:bg-primary/30 transition-all duration-500"></div>
+                <div class="relative aspect-video rounded-[40px] bg-base-300 border border-white/10 flex items-center justify-center overflow-hidden">
+                   <div class="text-white/5 text-9xl font-black italic rotate-12">MOUNTAINS</div>
+                </div>
+             </div>
+             <div class="space-y-8">
+                <h3 class="text-4xl font-black uppercase tracking-tighter">Горы <span class="text-primary">с Ассель</span></h3>
+                <p class="text-xl text-white/60 leading-relaxed font-medium">
+                   Каждое воскресенье участницы проекта встречаются в горах. Это место, где женщины знакомятся, делятся опытом и получают новые инсайты.
+                </p>
+                <div class="space-y-4">
+                   {[
+                     "Сильное женское окружение",
+                     "Живые встречи и нетворкинг",
+                     "Поддержка на пути изменений",
+                     "Возможность быть одной из первых"
+                   ].map(item => (
+                     <div class="flex gap-4 items-center text-lg font-bold">
+                        <span class="h-2 w-2 bg-primary rounded-full"></span>
+                        {item}
+                     </div>
+                   ))}
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+
+    <section class="py-24 bg-base-200/50">
+       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <SectionHeading title="Цель проекта" subtitle="Собрать 100 женщин, готовых к переменам" />
+          <p class="text-2xl text-white/80 leading-relaxed font-medium italic mb-16">
+             «Самые сильные изменения происходят не только на тренингах, а в среде и окружении. Так родилась идея создать это сообщество.»
+          </p>
+          <div class="p-16 border border-white/10 bg-base-100 rounded-[60px] relative overflow-hidden">
+             <div class="text-9xl font-black text-primary opacity-20 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">100</div>
+             <h4 class="text-4xl font-black uppercase mb-8 relative z-10 tracking-tighter">Стань частью <br/><span class="text-primary">сообщества</span></h4>
+             <a href="#" class="btn-primary-custom relative z-10 px-12">Вступить в клуб</a>
+          </div>
+       </div>
+    </section>
+
+    <Footer />
+  </main>
+</Layout>

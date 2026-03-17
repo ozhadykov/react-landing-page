@@ -1,0 +1,77 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+
+const steps = [
+  {
+    number: "01",
+    title: "Движение и окружение",
+    description: "Проект «100 женщин. Новая жизнь». Каждое воскресенье в горах. Здесь формируется сильное женское окружение.",
+    detail: "Воскресные встречи в горах"
+  },
+  {
+    number: "02",
+    title: "Новые привычки",
+    description: "Марафон «Умная ходьба». 21 день дисциплины и движения для поднятия уровня энергии.",
+    detail: "Марафон 21 день"
+  },
+  {
+    number: "03",
+    title: "Осознание",
+    description: "Живая встреча «Быстрое изменение жизни». Глубокий разговор о внутренних сценариях и новых решениях.",
+    detail: "Живая встреча 3-4 часа"
+  },
+  {
+    number: "04",
+    title: "Трансформация",
+    description: "Практический курс «Квантовый скачок». Глубокая работа над отношениями, коммуникацией и стратегией жизни.",
+    detail: "Курс-практикум"
+  },
+  {
+    number: "05",
+    title: "Энергия и здоровье",
+    description: "Система Forever Living Products. Мягкое восстановление организма и поддержка высокого уровня энергии.",
+    detail: "Health-система"
+  },
+  {
+    number: "06",
+    title: "Развитие и доход",
+    description: "Возможность создания собственного проекта и дохода в системе Forever Living Products.",
+    detail: "Предпринимательство"
+  }
+];
+---
+
+<section id="method" class="py-24 bg-base-100 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionHeading title="Метод «Новая жизнь»" subtitle="Авторская система поэтапных изменений Ассель Жадыковой" />
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {steps.map((step) => (
+        <div class="relative group p-8 rounded-4xl bg-base-200/30 border border-white/5 hover:border-primary/30 transition-all duration-500 overflow-hidden">
+          <div class="absolute -top-4 -right-4 text-9xl font-black text-white/5 group-hover:text-primary/10 transition-colors duration-500">
+            {step.number}
+          </div>
+          
+          <div class="relative z-10">
+            <div class="text-primary font-black mb-4 tracking-widest uppercase text-xs">Шаг {step.number}</div>
+            <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-primary transition-colors">
+              {step.title}
+            </h3>
+            <p class="text-white/50 mb-6 leading-relaxed">
+              {step.description}
+            </p>
+            <div class="inline-block px-4 py-1 rounded-full bg-white/5 text-[10px] font-bold uppercase tracking-widest text-white/40 border border-white/5">
+              {step.detail}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-16 text-center">
+      <a href="/project-100" class="btn-primary-custom">
+        Начать путь трансформации
+      </a>
+    </div>
+  </div>
+</section>
