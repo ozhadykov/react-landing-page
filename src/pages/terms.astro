@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Публичная оферта" isLegal={true}>
+  <SectionHeading title="Договор оферты" centered={false} />
+  
+  <div class="prose prose-invert max-w-4xl text-white/60 space-y-8 font-medium">
+    <p class="text-lg">
+      Настоящий документ является официальным предложением (публичной офертой) и содержит все существенные условия по оказанию образовательных услуг и предоставлению доступа к информационным материалам.
+    </p>
+
+    <div class="space-y-4">
+      <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">1. Предмет договора</h3>
+      <p>
+        Исполнитель обязуется оказать Заказчику услуги по обучению в рамках выбранной программы, а Заказчик обязуется оплатить эти услуги в соответствии с тарифами, указанными на сайте.
+      </p>
+    </div>
+
+    <div class="space-y-4">
+      <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">2. Условия оплаты</h3>
+      <p>
+        Оплата услуг производится Заказчиком путем 100% предоплаты или в соответствии с условиями рассрочки, если таковые предусмотрены для конкретного продукта. Все расчеты производятся в безналичной форме.
+      </p>
+    </div>
+
+    <div class="space-y-4">
+      <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">3. Интеллектуальная собственность</h3>
+      <p>
+        Все материалы, предоставляемые в ходе обучения (видео, тексты, методики), являются интеллектуальной собственностью Исполнителя. Запрещается копирование, распространение или передача доступа третьим лицам без письменного согласия автора.
+      </p>
+    </div>
+
+    <div class="space-y-4">
+      <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">4. Отказ от ответственности</h3>
+      <p>
+        Результаты обучения зависят от личных усилий Заказчика. Исполнитель не гарантирует достижение конкретных финансовых или жизненных результатов, так как они находятся вне прямого контроля Исполнителя.
+      </p>
+    </div>
+
+    <div class="pt-12 text-sm italic">
+      Последнее обновление: 17 марта 2026 г.
+    </div>
+  </div>
+  <Footer />
+</Layout>
