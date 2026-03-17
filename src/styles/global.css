@@ -21,6 +21,16 @@
   --animate-fade-in-up: fade-in-up 1s ease-out;
   --animate-floating: floating 6s ease-in-out infinite;
   --animate-shimmer: shimmer 3s linear infinite;
+  --animate-color-pulse: color-pulse 8s ease-in-out infinite;
+
+  @keyframes color-pulse {
+    0%, 100% {
+      filter: grayscale(100%);
+    }
+    50% {
+      filter: grayscale(0%);
+    }
+  }
 
   @keyframes fade-in-up {
     from {
