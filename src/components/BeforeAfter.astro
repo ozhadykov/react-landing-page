@@ -8,8 +8,8 @@ import SectionHeading from "./SectionHeading.astro";
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <!-- Result Card 1 -->
-      <div class="group relative aspect-video rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
-        <div class="absolute inset-0 flex transition-transform duration-500 ease-in-out group-hover:translate-x-[-100%]">
+      <div class="before-after-card group relative aspect-video rounded-3xl overflow-hidden border border-white/5 shadow-2xl cursor-pointer">
+        <div class="absolute inset-0 flex transition-transform duration-500 ease-in-out group-hover:translate-x-[-100%] card-slider">
           <!-- Before -->
           <div class="min-w-full h-full bg-base-300 flex items-center justify-center relative">
             <span class="absolute top-6 left-6 px-4 py-2 bg-black/50 backdrop-blur-md rounded-full text-xs font-black uppercase tracking-widest border border-white/10">До</span>
@@ -21,15 +21,16 @@ import SectionHeading from "./SectionHeading.astro";
              <div class="text-primary/20 text-4xl font-black italic uppercase">Квантовый Скачок</div>
           </div>
         </div>
-        <!-- Hover indicator -->
-        <div class="absolute bottom-6 right-6 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-white/50 group-hover:opacity-0 transition-opacity">
-          Наведите, чтобы увидеть результат
+        <!-- Mobile indicator -->
+        <div class="absolute bottom-6 right-6 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-white/50 md:group-hover:opacity-0 transition-opacity">
+          <span class="md:hidden">Нажмите, чтобы увидеть</span>
+          <span class="hidden md:inline">Наведите, чтобы увидеть</span>
         </div>
       </div>
 
        <!-- Result Card 2 -->
-       <div class="group relative aspect-video rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
-        <div class="absolute inset-0 flex transition-transform duration-500 ease-in-out group-hover:translate-x-[-100%]">
+       <div class="before-after-card group relative aspect-video rounded-3xl overflow-hidden border border-white/5 shadow-2xl cursor-pointer">
+        <div class="absolute inset-0 flex transition-transform duration-500 ease-in-out group-hover:translate-x-[-100%] card-slider">
           <!-- Before -->
           <div class="min-w-full h-full bg-base-300 flex items-center justify-center relative">
             <span class="absolute top-6 left-6 px-4 py-2 bg-black/50 backdrop-blur-md rounded-full text-xs font-black uppercase tracking-widest border border-white/10">До</span>
@@ -41,11 +42,33 @@ import SectionHeading from "./SectionHeading.astro";
              <div class="text-primary/20 text-4xl font-black italic uppercase">Новая Я</div>
           </div>
         </div>
-         <!-- Hover indicator -->
-         <div class="absolute bottom-6 right-6 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-white/50 group-hover:opacity-0 transition-opacity">
-          Наведите, чтобы увидеть результат
+         <!-- Mobile indicator -->
+         <div class="absolute bottom-6 right-6 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-white/50 md:group-hover:opacity-0 transition-opacity">
+          <span class="md:hidden">Нажмите, чтобы увидеть</span>
+          <span class="hidden md:inline">Наведите, чтобы увидеть</span>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  const cards = document.querySelectorAll('.before-after-card');
+  
+  cards.forEach(card => {
+    const slider = card.querySelector('.card-slider') as HTMLElement;
+    let isToggled = false;
+
+    card.addEventListener('click', () => {
+      // Only for mobile/touch or if you want click on desktop too
+      if (window.innerWidth < 1024) {
+        isToggled = !isToggled;
+        if (isToggled) {
+          slider.style.transform = 'translateX(-100%)';
+        } else {
+          slider.style.transform = 'translateX(0)';
+        }
+      }
+    });
+  });
+</script>
